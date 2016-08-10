@@ -1,4 +1,4 @@
-package net.iwin247.calendar;
+package net.iwin247.calendar.utils;
 
 /**
  * Created by june on 2016. 6. 12..
@@ -14,6 +14,8 @@ import android.support.v4.app.NotificationCompat;
 
 import com.google.android.gms.gcm.GcmListenerService;
 
+import net.iwin247.calendar.R;
+import net.iwin247.calendar.activity.MainActivity;
 
 
 //Class is extending GcmListenerService

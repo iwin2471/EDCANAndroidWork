@@ -1,4 +1,4 @@
-package net.iwin247.calendar;
+package net.iwin247.calendar.utils;
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
+
+import net.iwin247.calendar.R;
 
 
 public class GCMRegistrationIntentService extends IntentService {

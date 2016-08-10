@@ -1,11 +1,11 @@
-package net.iwin247.calendar;
+package net.iwin247.calendar.activity;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import net.iwin247.calendar.R;
 
 public class SplashActivity extends Activity {
 
@@ -22,6 +22,6 @@ public class SplashActivity extends Activity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
-        }, 2500);
+        }, 2000);
     }
 }

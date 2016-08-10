@@ -1,4 +1,4 @@
-package net.iwin247.calendar;
+package net.iwin247.calendar.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,15 +17,18 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
+import net.iwin247.calendar.R;
+import net.iwin247.calendar.model.sendToken;
 
-import java.util.ArrayList;
-import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TokenToServer extends AppCompatActivity {
+    Call<sendToken> sendTokenCall;
+    public static final String API_URL = "http://iwin247.net";
     //Creating a broadcast receiver for gcm registration
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     /**
@@ -33,7 +36,6 @@ public class TokenToServer extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    List<NameValuePair> params;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,27 +56,29 @@ public class TokenToServer extends AppCompatActivity {
                     //Getting the registration token from the intent
                     String token = intent.getStringExtra("token");
 
-                    params = new ArrayList<NameValuePair>();
-                    params.add(new BasicNameValuePair("androidToken", token));
-                    params.add(new BasicNameValuePair("id", "test"));
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl(API_URL)
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
 
-                    ServerRequest sr = new ServerRequest();
-                    JSONObject json = sr.getJSON("http://www.iwin247.net/users", params);
-                    //JSONObject json = sr.getJSON("http://192.168.56.1:8080/register",params);
+                    // Service setup
+                    NetworkInterface service = retrofit.create(NetworkInterface.class);
 
-                    if(json != null){
-                        try{
-                            String jsonstr = json.getString("response");
-
-                            Toast.makeText(getApplication(),jsonstr,Toast.LENGTH_LONG).show();
-
-                            Log.d("Hello", jsonstr);
-                        }catch (JSONException e) {
-                            e.printStackTrace();
+                    sendTokenCall = service.SendToken(token);
+                    sendTokenCall.enqueue(new Callback<sendToken>() {
+                        @Override
+                        public void onResponse(Call<sendToken> call, Response<sendToken> response) {
+                            switch (response.code()) {
+                                case 200:
+                                    break;
+                            }
                         }
-                    }
 
-                    //if the intent is not with success then displaying error messages
+                        @Override
+                        public void onFailure(Call<sendToken> call, Throwable t) {
+
+                        }
+                    });
                 } else if (intent.getAction().equals(GCMRegistrationIntentService.REGISTRATION_ERROR)) {
                     Toast.makeText(getApplicationContext(), "GCM registration error!", Toast.LENGTH_LONG).show();
                 } else {

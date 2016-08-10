@@ -1,7 +1,9 @@
-package net.iwin247.calendar;
+package net.iwin247.calendar.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import net.iwin247.calendar.R;
 
 public class calender extends AppCompatActivity {
 

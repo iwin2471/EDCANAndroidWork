@@ -10,13 +10,14 @@ var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var sendToken = require('./routes/sendToken');
 
 var app = express();
 
 var UserSchema = new mongoose.Schema({
         email: { type : String, required:true, unique:true},
         passwd: { type : String, required:true},
+        GCMToken: { type : String},
+	GcalToken: { type : String},
 	cal: {
 	    date: { type: Date, default: Date.now },
    	    summary: { type: String},
@@ -40,7 +41,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/sendToken', sendToken);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -71,10 +71,6 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   })
-});
-
-app.use(function(err, req, res, next) {
-  res.status(300);
 });
 
 

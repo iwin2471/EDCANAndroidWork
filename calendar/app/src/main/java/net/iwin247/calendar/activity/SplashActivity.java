@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import net.iwin247.calendar.R;
 
+
 public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

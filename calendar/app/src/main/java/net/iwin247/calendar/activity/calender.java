@@ -34,6 +34,7 @@ public class calender extends AppCompatActivity {
         tx = (TextView) findViewById(R.id.one);
 
 
+
         SharedPreferences prefs = getSharedPreferences("test", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("isLogin", "yes");

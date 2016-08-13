@@ -58,3 +58,4 @@ public class GCMRegistrationIntentService extends IntentService {
         LocalBroadcastManager.getInstance(this).sendBroadcast(registrationComplete);
     }
 }
+

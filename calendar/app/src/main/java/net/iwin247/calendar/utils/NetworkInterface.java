@@ -21,3 +21,6 @@ public interface NetworkInterface {
     @FormUrlEncoded
     Call<Login> Login(@Field("Email") String Email, @Field("pw") String passwd, @Field("Token") String Token);
 }
+
+
+

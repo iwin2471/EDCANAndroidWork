@@ -18,3 +18,4 @@ public class GCMTokenRefreshListenerService extends InstanceIDListenerService {
         startService(intent);
     }
 }
+

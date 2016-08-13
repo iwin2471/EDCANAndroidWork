@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         email = Email.getText().toString();
         pw = passwd.getText().toString();
 
+
         switch (view.getId()) {
             case R.id.Login:
                 LoginCall = service.Login(email, pw, Token);

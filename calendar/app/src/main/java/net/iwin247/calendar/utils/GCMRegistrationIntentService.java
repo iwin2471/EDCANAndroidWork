@@ -30,6 +30,7 @@ public class GCMRegistrationIntentService extends IntentService {
         //Registration complete intent initially null
         Intent registrationComplete = null;
 
+
         //Register token is also null
         //we will get the token on successfull registration
         String token = null;

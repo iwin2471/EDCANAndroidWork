@@ -30,6 +30,7 @@ public class GCMPushReceiverService extends GcmListenerService {
         sendNotification(message);
     }
 
+
     //This method is generating a notification and displaying the notification
     private void sendNotification(String message) {
         Intent intent = new Intent(this, MainActivity.class);

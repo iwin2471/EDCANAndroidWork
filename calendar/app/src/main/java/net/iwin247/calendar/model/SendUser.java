@@ -6,9 +6,11 @@ package net.iwin247.calendar.model;
 public class SendUser {
     private String Email;
     private String passwd;
+    private String Token;
 
-    public SendUser(String Email, String passwd){
+    public SendUser(String Email, String passwd, String Token){
         this.Email = Email;
         this.passwd = passwd;
+        this.Token = Token;
     }
 }

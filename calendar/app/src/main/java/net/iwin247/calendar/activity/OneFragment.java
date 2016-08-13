@@ -1,10 +1,14 @@
 package net.iwin247.calendar.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import net.iwin247.calendar.R;
 
 /**
  * Created by user on 2016-08-10.

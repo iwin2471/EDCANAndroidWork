@@ -53,7 +53,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".utils.TokenToServer" />
         <activity android:name=".activity.calender" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>

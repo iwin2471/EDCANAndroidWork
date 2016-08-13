@@ -33,12 +33,6 @@ public class calender extends AppCompatActivity {
         setContentView(R.layout.activity_calender);
         tx = (TextView) findViewById(R.id.one);
 
-        FloatingActionButton myFab = (FloatingActionButton)  myView.findViewById(R.id.myFAB);
-        myFab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                doMyThing();
-            }
-        });
 
         SharedPreferences prefs = getSharedPreferences("test", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();

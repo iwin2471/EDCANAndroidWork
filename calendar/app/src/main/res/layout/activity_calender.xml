@@ -51,6 +51,7 @@
         </android.support.design.widget.CoordinatorLayout>
     </LinearLayout>
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"

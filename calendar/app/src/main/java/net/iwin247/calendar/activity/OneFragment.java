@@ -15,6 +15,7 @@ import net.iwin247.calendar.R;
  * Created by user on 2016-08-10.
  */
 public class OneFragment extends Fragment {
+    TextView tx;
 
     public OneFragment() {
         // Required empty public constructor
@@ -24,11 +25,11 @@ public class OneFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_one, container, false);
     }

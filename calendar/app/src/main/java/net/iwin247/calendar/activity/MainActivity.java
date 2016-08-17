@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         SharedPreferences prefs = getSharedPreferences("test" , 0);
         String isLogin = prefs.getString("isLogin","");
-        Toast.makeText(MainActivity.this, isLogin, Toast.LENGTH_SHORT).show();
         if(isLogin.equals("yes")){
             finish();
             startActivity(new Intent(MainActivity.this, calender.class));
@@ -106,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (intent.getAction().equals(GCMRegistrationIntentService.REGISTRATION_SUCCESS)) {
                     //Getting the registration token from the intent
                      Token = intent.getStringExtra("token");
+                    Toast.makeText(MainActivity.this, Token, Toast.LENGTH_SHORT).show();
 
                 } else if (intent.getAction().equals(GCMRegistrationIntentService.REGISTRATION_ERROR)) {
                     Toast.makeText(getApplicationContext(), "GCM registration error!", Toast.LENGTH_LONG).show();
@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent itent = new Intent(this, GCMRegistrationIntentService.class);
             startService(itent);
         }
+
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -147,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         email = Email.getText().toString();
         pw = passwd.getText().toString();
-
+        Toast.makeText(MainActivity.this, Token, Toast.LENGTH_SHORT).show();
 
         switch (view.getId()) {
             case R.id.Login:
@@ -161,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 finish();
                                 SharedPreferences prefs = getSharedPreferences("test", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = prefs.edit();
+                                editor.putString("isLogin", "yes");
                                 editor.putString("email", email);
                                 editor.commit();
 
@@ -197,6 +199,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             switch (response.code()) {
                                 case 300:
                                     finish();
+                                    SharedPreferences prefs = getSharedPreferences("test", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = prefs.edit();
+                                    editor.putString("isLogin", "yes");
+                                    editor.putString("email", email);
+                                    editor.commit();
                                     startActivity(new Intent(MainActivity.this, calender.class));
                                     break;
                                 case 302:

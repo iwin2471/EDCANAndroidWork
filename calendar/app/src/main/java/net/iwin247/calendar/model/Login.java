@@ -8,6 +8,8 @@ public class Login {
     private String passwd;
     private String Token;
 
+
+
     public Login(String Email, String passwd, String Token){
         this.Email = Email;
         this.passwd = passwd;

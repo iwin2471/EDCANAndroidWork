@@ -1,4 +1,4 @@
-# EDCANAndroidWork //unfortunately fomat Data disk with my server project lpl
+# EDCANAndroidWork //unfortunately I fomat the Data disk with my server project lol
 ### 에드켄 안드로이드 숙제
 ### EDCAN android develop homework
 

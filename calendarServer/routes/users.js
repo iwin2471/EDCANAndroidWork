@@ -6,7 +6,7 @@ router.post('/reg', function(req, res, next) {
   	var email = req.param('Email');
         var pw = req.param('pw');
         var Token = req.param('Token');
-
+ 	
         var current = new Users({
              email: email,
              passwd: pw,
@@ -18,6 +18,7 @@ router.post('/reg', function(req, res, next) {
                 console.log("error");
 		return  res.send(301,"DB error");
             }
+	      console.log(Token);
 	      gcm.sendRegSu(Token);
 	      return res.send(300,"su");
         });

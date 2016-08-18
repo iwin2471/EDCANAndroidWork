@@ -7,8 +7,6 @@
 + add Calendar
 + add add schedule activity
 + synchronization with google calendar
-+ add add button
-+ add card view
 
 ##server
 + add summary db
@@ -26,3 +24,5 @@
 + make POST LOGIN
 + make User DB
 + get google calendar summary
++ add add button
++ add card view

@@ -19,10 +19,10 @@
 + make main activity
 + add Login
 + check Login logic
++ add add button
++ add card view
 
 ##server
 + make POST LOGIN
 + make User DB
 + get google calendar summary
-+ add add button
-+ add card view
